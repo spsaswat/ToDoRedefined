@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    //this is my(Saswat Panda' s) personal collection of colors and combinations.
+    //I use them in most of the projects I work upon.
+
+    <color name="LightYellow">#FFFF33</color>
+    <color name="Yellow">#ffd633</color>
+    <color name="DarkYellow">#ffcc00</color>
+    <color name="YellowPBlack">#ffa500</color>
+    <color name="Green">#00FF00</color>
+    <color name="GreenSuperLight">#cdd885</color>
+    <color name="GreenLight">#A0BC5D</color>
+    <color name="GreenSpring">#00FF7F</color>
+    <color name="colorPrimary">#DC143C</color>
+    <color name="colorPrimaryDark">#B22222</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="Red">#FF0000</color>
+    <color name="FireBrick">#B22222</color>
+    <color name="RedSalmon">#FA8072</color>
+    <color name="RedCrimson">#DC143C</color>
+    <color name="Pink">#FF00FF</color>
+    <color name="PinkLightCoral">#F08080</color>
+    <color name="White">#FFFFFF</color>
+    <color name="Black">#000000</color>
+    <color name="WhiteSmoke">#F5F5F5</color>
+    <color name="Grey">#C0C0C0</color>
+    <color name="Blue">#0000FF</color>
+    <color name="BlueSky">#87CEEB</color>
+    <color name="Sky">#00FFFF</color>
+    <color name="Sky_a">#8AAAE5</color>
+    <color name="BlueRoyale">#4169E1</color>
+    <color name="BlueNavy">#000080</color>
+
+    <!-- Combinations -->
+    <color name="C1_Red">#F96167</color>
+    <color name="C1_Yellow">#FCE77D</color>
+
+
+
+    <!-- Combinations -->
+    <color name="C2_Black">#292826</color>
+    <color name="C2_Yellow">#f9d342</color>
+
+
+
+
+
+    <!-- Combinations -->
+    <color name="C3_Purple">#3D155F</color>
+    <color name="C3_Pink">#DF678C</color>
+
+
+
+
+
+    <!-- Combinations -->
+    <color name="C4_Blue">#4831D4</color>
+    <color name="C4_Green">#CCF381</color>
+
+
+
+
+    <!-- Combinations -->
+    <color name="C5_Orange">#F0A07C</color>
+    <color name="C5_Purple">#4A274F</color>
+
+
+
+    <!-- Combinations -->
+    <color name="C6_Red">#EF5455</color>
+    <color name="C6_Navy">#2B3252</color>
+    <color name="C6_Yellow">#FAD744</color>
+
+
+
+
+    <!-- Combinations -->
+    <color name="C7_Purple">#3C1A5B</color>
+    <color name="C7_Yellow">#FFF748</color>
+
+
+
+
+    <!-- Combinations -->
+    <color name="C8_Pink">#FBEAEB</color>
+    <color name="C8_Blue">#2F3C7E</color>
+
+
+
+
+    <!-- Combinations -->
+    <color name="C9_Black">#1D1B1B</color>
+    <color name="C9_Red">#EC4D37</color>
+
+
+
+
+    <!-- Combinations -->
+    <color name="C10_Blue">#243665</color>
+    <color name="C10_Turquoise">#8BD8BD</color>
+
+
+
+    <!-- Combinations -->
+    <color name="C11_Orange">#EC8B5E</color>
+    <color name="C11_Blue">#141A46</color>
+
+
+
+
+    <!-- Combinations -->
+    <color name="C12_Blue">#8AAAE5</color>
+    <color name="C12_White">#FFFFFF</color>
+
+
+
+
+    <!-- Combinations -->
+    <color name="C13_Yellow">#FFE67C</color>
+    <color name="C13_Green">#295F2D</color>
+
+
+
+
+
+    <!-- Combinations music and film-->
+    <color name="C14_Black">#161B21</color>
+    <color name="C14_Orange">#F4A950</color>
+
+
+
+
+    <!-- Combinations beauty and blogging-->
+    <color name="C15_Blue">#080A52</color>
+    <color name="C15_Pink">#EB2188</color>
+
+
+
+</resources>

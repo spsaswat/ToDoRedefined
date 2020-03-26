@@ -10,6 +10,9 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.regex.Pattern;
 
 public class update_ extends AppCompatActivity {
 String task,date,status,t;
@@ -90,8 +93,17 @@ MainActivity mt;
         String new_val;
         et2=(EditText) findViewById(R.id.editText2);
         new_val=et2.getText().toString();
+        boolean b = Pattern.matches("^2[01][23456789][0-9]-[01][0-9]-[0123][0-9]$", new_val);
+        if(b)
+        {
         MyDb.update_task_date(task,date,new_val);
-        date=new_val;
+        Toast.makeText(this, "Date Updated",
+                Toast.LENGTH_SHORT).show();
+        date=new_val;}
+        else{
+            Toast.makeText(this, "Wrong Date (yyyy-mm-dd)",
+                    Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void update_task(View view) {
@@ -99,6 +111,8 @@ MainActivity mt;
         et1=(EditText) findViewById(R.id.editText);
         new_val=et1.getText().toString();
         MyDb.update_task(task,date,new_val);
+        Toast.makeText(this, "Task Name Updated",
+                Toast.LENGTH_SHORT).show();
         task=new_val;
     }
 

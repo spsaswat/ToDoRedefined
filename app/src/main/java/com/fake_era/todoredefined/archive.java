@@ -16,6 +16,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -23,7 +24,7 @@ public class archive extends AppCompatActivity {
     SqlHelper MyDb;
     TextView tv;
     ArrayAdapter<String> mAdapter;
-    //ArrayAdapter<String> dAdapter;
+
     ListView ATask;
 
     @Override
@@ -87,8 +88,11 @@ public class archive extends AppCompatActivity {
     public void del1arc(View view) {
         View parent = (View)view.getParent();
         TextView taskTextView = (TextView)parent.findViewById(R.id.task_archive);
-        String str=taskTextView.getText().toString();
-        MyDb.delete1Archive(str);
+        String task="",date="",str=taskTextView.getText().toString();
+        int index=1+str.indexOf("\n");
+        task=str.substring(0,index-1);
+        date=str.substring(str.length()-10);
+        MyDb.delete1Archive(task,date);
         loadArchiveList();
     }
 }

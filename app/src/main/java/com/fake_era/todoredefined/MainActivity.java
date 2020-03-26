@@ -26,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
     ArrayAdapter<String> mAdapter;
     //ArrayAdapter<String> dAdapter;
     ListView lstTask;
+    static int s=0,n=4;
+    String msg="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,10 +76,18 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.action_add_task:
+                if((s%n)==0)
+                {msg="Solve Problems";s++;}
+                else if((s%n)==1)
+                {msg="Physical Exercise";s++;}
+                else if((s%n)==2)
+                {msg="Understand A concept";s++;}
+                else
+                {msg="Hobby";s=0;}
                 final EditText taskEditText = new EditText(this);
                 AlertDialog dialog = new AlertDialog.Builder(this)
                         .setTitle("Create a New Task")
-                        .setMessage("Example:- Play Football")
+                        .setMessage("For Example:- "+msg)
                         .setView(taskEditText)
                         .setPositiveButton("Add", new DialogInterface.OnClickListener() {
                             @Override

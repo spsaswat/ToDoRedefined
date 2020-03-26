@@ -25,6 +25,8 @@ public class SqlHelper extends SQLiteOpenHelper {
 
     public static final String DB_TABLE_ar="Archive";
     public static final String DB_COLUMN_ar = "Name";
+    public static final String DB_COLUMN_1_ar = "Date";
+
 
     //constructor
     public SqlHelper(Context context) {
@@ -35,7 +37,7 @@ public class SqlHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String query = String.format("CREATE TABLE %s (%s TEXT NOT NULL,%s TEXT,%s TEXT NOT NULL,PRIMARY KEY (%s,%s));",DB_TABLE,DB_COLUMN,DB_COLUMN_1,DB_COLUMN_2,DB_COLUMN,DB_COLUMN_1);
         db.execSQL(query);
-        String query1 = String.format("CREATE TABLE %s (%s TEXT PRIMARY KEY);",DB_TABLE_ar,DB_COLUMN_ar);
+        String query1 = String.format("CREATE TABLE %s (%s TEXT NOT NULL,%s TEXT,PRIMARY KEY (%s,%s));",DB_TABLE_ar,DB_COLUMN_ar,DB_COLUMN_1_ar,DB_COLUMN_ar,DB_COLUMN_1_ar);
         db.execSQL(query1);
 
 
@@ -51,7 +53,7 @@ public class SqlHelper extends SQLiteOpenHelper {
 
     public void insertNewTask(String task){
         Date c = Calendar.getInstance().getTime();
-        SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         String formattedDate = df.format(c);
         SQLiteDatabase db= this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -64,24 +66,15 @@ public class SqlHelper extends SQLiteOpenHelper {
 
     public void deleteTask(String task,String date){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.query(DB_TABLE,new String[]{DB_COLUMN,DB_COLUMN_1,DB_COLUMN_2},DB_COLUMN+"=? AND "+DB_COLUMN_1+"=?",new String[]{task,date},null,null,DB_COLUMN_1);
-        String task_det_ar="";
-        while(cursor.moveToNext()){
-            StringBuffer buffer=new StringBuffer();
-            buffer.append(cursor.getString(0)+"\n");
-            buffer.append(cursor.getString(1)+"\n");
-            if(cursor.getString(2).equals("0"))
-                buffer.append("PENDING");
-            else
-                buffer.append("COMPLETED");
-            task_det_ar=buffer.toString();
-        }
-        cursor.close();
+
+
 
         //inserting
         ContentValues values = new ContentValues();
-        values.put(DB_COLUMN_ar,task_det_ar);
+        values.put(DB_COLUMN_ar,task);
+        values.put(DB_COLUMN_1_ar,date);
         db.insertWithOnConflict(DB_TABLE_ar,null,values,SQLiteDatabase.CONFLICT_REPLACE);
+        //done for archive
 
 
         db.delete(DB_TABLE,DB_COLUMN + "= ?"+" AND "+DB_COLUMN_1 + "= ?", new String[] {task,date});
@@ -120,20 +113,22 @@ public class SqlHelper extends SQLiteOpenHelper {
     }
 
 
-    public void delete1Archive(String task){
+    public void delete1Archive(String task,String date){
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(DB_TABLE_ar,DB_COLUMN_ar + "= ?", new String[] {task});
+        db.delete(DB_TABLE_ar,DB_COLUMN_ar + "= ?"+" AND "+DB_COLUMN_1_ar + "= ?", new String[] {task,date});
         db.close();
+
     }
 
 
     public ArrayList<String> getArchiveList(){
         ArrayList<String> ArchiveList = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.query(DB_TABLE_ar,new String[]{DB_COLUMN_ar},null,null,null,null,DB_COLUMN_ar);
+        Cursor cursor = db.query(DB_TABLE_ar,new String[]{DB_COLUMN_ar,DB_COLUMN_1_ar},null,null,null,null,DB_COLUMN_1_ar+" DESC");
         while(cursor.moveToNext()){
             StringBuffer buffer=new StringBuffer();
-            buffer.append(cursor.getString(0));
+            buffer.append(cursor.getString(0)+"\n");
+            buffer.append(cursor.getString(1));
             ArchiveList.add(buffer.toString());
         }
         cursor.close();

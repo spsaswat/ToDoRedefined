@@ -42,18 +42,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-//    private void loadDateList() {
-//        ArrayList<String> DateList = MyDb.getDateList();
-//        if(dAdapter==null){
-//            dAdapter = new ArrayAdapter<String>(this,R.layout.gen_row,R.id.textView,DateList);
-//            lstTask.setAdapter(dAdapter);
-//
-//        }
-//        else{
-//            dAdapter.addAll(DateList);
-//            dAdapter.notifyDataSetChanged();
-//        }
-//    }
+
 
     private void loadTaskList() {
         ArrayList<String> taskList = MyDb.getTaskList();
@@ -102,6 +91,10 @@ public class MainActivity extends AppCompatActivity {
                         .create();
                 dialog.show();
                 return true;
+            case R.id.action_archive:
+                Intent myIntent = new Intent(this, archive.class);
+                startActivity(myIntent);
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -109,7 +102,6 @@ public class MainActivity extends AppCompatActivity {
     public void deleteTask(View view){
         View parent = (View)view.getParent();
         TextView taskTextView = (TextView)parent.findViewById(R.id.task_title);
-        Log.e("String", (String) taskTextView.getText());
         String date,task,str=taskTextView.getText().toString();
         int index=1+str.indexOf("\n");
         task=str.substring(0,index-1);
@@ -118,34 +110,6 @@ public class MainActivity extends AppCompatActivity {
         loadTaskList();
     }
 
-//    public void change_color(View view){
-//        View parent = (View)view.getParent();
-//        TextView taskTextView = (TextView)parent.findViewById(R.id.task_title);
-//        tv=(TextView) parent.findViewById(R.id.tvstat);
-//        String t="",str=tv.getText().toString();
-//        String task = taskTextView.getText().toString();
-//
-//        //0=pending 1=completed
-//        if(str.equals("PENDING")){
-//            t="1";
-//        }
-//        else t="0";
-//        if(t.equals("1"))
-//        {
-//           tv.setText("COMPLETED");
-//           tv.setBackgroundResource(GreenSpring);
-//
-//        }
-//        else
-//        {
-//            tv.setText("PENDING");
-//            tv.setBackgroundResource(Yellow);
-//        }
-//
-//        MyDb.update_task_stat(task,t);
-//
-//
-//        }
 
 public void update_(View view)
 {
@@ -173,7 +137,13 @@ public void update_(View view)
 //        return "Date not found";
 //    }
 //}
-
+@Override
+public void onBackPressed() {
+    Intent a = new Intent(Intent.ACTION_MAIN);
+    a.addCategory(Intent.CATEGORY_HOME);
+    a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+    startActivity(a);
+}
 
 
 }

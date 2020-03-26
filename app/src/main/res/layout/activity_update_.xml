@@ -41,15 +41,15 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="136dp"
-        android:layout_marginLeft="136dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginLeft="140dp"
         android:layout_marginTop="161dp"
         android:background="@drawable/round"
-        android:textColor="@color/WhiteSmoke"
+        android:onClick="update_task"
         android:paddingLeft="3dp"
         android:paddingRight="3dp"
-        android:onClick="update_task"
-        android:text="update task" />
+        android:text="update task"
+        android:textColor="@color/WhiteSmoke" />
 
     <Button
         android:id="@+id/button2"

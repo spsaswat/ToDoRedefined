@@ -44,13 +44,15 @@ MainActivity mt;
         {
            tv.setText("COMPLETED");
 
-           tv.setBackgroundColor(ContextCompat.getColor(this,R.color.GreenSuperLight));
+           tv.setBackgroundColor(ContextCompat.getColor(this,R.color.C13_Green));
+            tv.setTextColor(ContextCompat.getColor(this,R.color.C13_Yellow));
 
         }
         else
         {
             tv.setText("PENDING");
             tv.setBackgroundColor(ContextCompat.getColor(this,R.color.C6_Navy));
+            tv.setTextColor(ContextCompat.getColor(this,R.color.C6_Yellow));
         }
 
         //MyDb.update_task_stat(task,t);
@@ -62,7 +64,7 @@ MainActivity mt;
         if(status.equals("COMPLETED"))
         {
             tv.setText("PENDING");
-
+            tv.setTextColor(ContextCompat.getColor(this,R.color.C6_Yellow));
             tv.setBackgroundColor(ContextCompat.getColor(this,R.color.C6_Navy));
             status="PENDING";
 
@@ -71,7 +73,8 @@ MainActivity mt;
         {
             tv.setText("COMPLETED");
 
-            tv.setBackgroundColor(ContextCompat.getColor(this,R.color.GreenSuperLight));
+            tv.setBackgroundColor(ContextCompat.getColor(this,R.color.C13_Green));
+            tv.setTextColor(ContextCompat.getColor(this,R.color.C13_Yellow));
             status="COMPLETED";
         }
         if(status.equals("PENDING")){

@@ -3,9 +3,8 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
     <TextView
-        android:id="@+id/task_title"
+        android:id="@+id/task_archive"
         android:layout_width="297dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -14,24 +13,18 @@
         android:layout_marginStart="7dp"
         android:layout_marginLeft="7dp"
         android:layout_marginTop="4dp"
-        android:onClick="update_"
         android:text="Example"
         android:textColor="@color/Black"
         android:textSize="20sp" />
 
     <Button
-        android:id="@+id/btnDelete"
-        android:layout_width="34dp"
-        android:layout_height="32dp"
-        android:layout_alignParentTop="true"
+        android:id="@+id/btnDeleteAr"
+        android:layout_width="43dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="7dp"
-        android:layout_marginEnd="7dp"
-        android:layout_marginRight="7dp"
-        android:background="@mipmap/ic_archive"
-        android:onClick="deleteTask"
+        android:background="@android:drawable/ic_delete"
+        android:onClick="del1arc"
         android:text="" />
-
 
 </RelativeLayout>

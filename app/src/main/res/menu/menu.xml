@@ -12,7 +12,7 @@
     <item
         android:id="@+id/action_archive"
         android:icon="@mipmap/ic_archive"
-        android:title="Add New Task"
+        android:title="Go To Archive"
         app:showAsAction="always"
         />
 </menu>

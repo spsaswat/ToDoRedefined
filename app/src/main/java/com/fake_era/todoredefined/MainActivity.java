@@ -93,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 String task = String.valueOf(taskEditText.getText());
+                                task=task.replaceAll("\n","  ");
                                 MyDb.insertNewTask(task);
                                 loadTaskList();
                             }

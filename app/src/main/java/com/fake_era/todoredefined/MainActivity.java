@@ -136,6 +136,7 @@ public void update_(View view)
     myIntent.putExtra("VariableName2", date);
     myIntent.putExtra("VariableName3", status);
     startActivity(myIntent);
+    finish();
 }
 
 

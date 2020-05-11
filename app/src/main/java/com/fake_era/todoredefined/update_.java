@@ -102,7 +102,7 @@ MainActivity mt;
         date=new_val;}
         else{
             Toast.makeText(this, "Wrong Date (yyyy-mm-dd)",
-                    Toast.LENGTH_SHORT).show();
+                    Toast.LENGTH_LONG).show();
         }
     }
 
@@ -119,7 +119,7 @@ MainActivity mt;
     @Override
     public void onBackPressed() {
         Intent intent = new Intent(this,MainActivity.class);
-        startActivity(intent);
+        startActivity(intent.addFlags(intent.FLAG_ACTIVITY_NO_ANIMATION));
         super.onBackPressed();
     }
 
